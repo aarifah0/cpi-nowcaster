@@ -8,7 +8,9 @@ __pycache__/
 
 # Data files - we fetch fresh data daily
 data/*.csv
+# Keep nowcast.json for the dashboard
 data/*.json
+!data/nowcast.json
 
 # Environment variables - contains your secret API key
 .env
