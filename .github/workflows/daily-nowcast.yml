@@ -2,21 +2,21 @@ name: Daily CPI Nowcast
 
 on:
   schedule:
-    # Runs every day at 8:00 AM UTC
     - cron: '0 8 * * *'
   workflow_dispatch:
-    # Allows you to run it manually from GitHub
 
 jobs:
   nowcast:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       
@@ -34,5 +34,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/nowcast.json
-          git commit -m "Daily nowcast update: $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git commit -m "Daily nowcast: $(date +'%Y-%m-%d')" || echo "No changes to commit"
           git push
