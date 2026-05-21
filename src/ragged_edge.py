@@ -53,12 +53,17 @@ def get_latest_available(as_of_date, monthly_df, daily_df):
         reference_month = (as_of_date.replace(day=1) - pd.DateOffset(months=1))
 
     # Create a range of reference months for the matrix
-    # Go back 24 months for training context, up to reference_month
+# Go back as far as the labels allow (for training)
+# First find the earliest date in monthly data
+    earliest_monthly = monthly_df.index.min()
+    if pd.isna(earliest_monthly):
+        earliest_monthly = reference_month - pd.DateOffset(months=119)
+
     months = pd.date_range(
-        start=reference_month - pd.DateOffset(months=23),
+        start=earliest_monthly,
         end=reference_month,
         freq="MS"
-    )
+)
 
     # Initialize the output DataFrame
     ragged = pd.DataFrame(index=months)
