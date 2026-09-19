@@ -1,29 +1,29 @@
 {
-  "date": "2026-09-18",
-  "nowcast": 3.68,
+  "date": "2026-09-19",
+  "nowcast": 3.69,
   "latest_actual": 3.71,
   "rmse_historical": 0.57,
   "mae_historical": 0.4,
   "top_features": [
     {
       "feature": "MICH",
-      "importance": 0.41830986738204956
+      "importance": 0.44779032468795776
     },
     {
       "feature": "T5YIE",
-      "importance": 0.12804773449897766
+      "importance": 0.12279023975133896
     },
     {
       "feature": "CPI_lag1",
-      "importance": 0.10363034158945084
+      "importance": 0.0995563194155693
     },
     {
       "feature": "HOUST",
-      "importance": 0.10214291512966156
+      "importance": 0.08229795098304749
     },
     {
       "feature": "PAYEMS_mom",
-      "importance": 0.051526401191949844
+      "importance": 0.042091239243745804
     }
   ],
   "data_available": {
